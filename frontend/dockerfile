@@ -1,0 +1,21 @@
+# Usa la imagen de Node 18
+FROM node:18
+
+# Crea el directorio de la aplicación
+WORKDIR /usr/src/app
+
+# Instala las dependencias
+COPY package*.json ./
+RUN npm install
+
+# Copia el código fuente
+COPY . .
+
+# Compila la aplicación para producción
+RUN npm run build
+
+# Expone un puerto diferente para la aplicación (ej. 4000)
+EXPOSE 4000
+
+# Comando para ejecutar la aplicación en modo de vista previa
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4000"]

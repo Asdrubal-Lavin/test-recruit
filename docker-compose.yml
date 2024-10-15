@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend  # Carpeta donde se encuentra el Dockerfile del frontend
+    ports:
+      - "4000:4000"  # Mapea el puerto 4000 del contenedor al puerto 4000 de la máquina host
+    environment:
+      VITE_API_URL: http://localhost:3000  # URL para acceder al backend desde el frontend
+    depends_on:
+      - backend  # Asegura que el backend esté en ejecución antes del frontend
+
+  backend:
+    build:
+      context: ./backend  # Carpeta donde se encuentra el Dockerfile del backend
+    ports:
+      - "3000:3000"  # Mapea el puerto 3000 del contenedor al puerto 3000 de la máquina host
+    environment:
+      NODE_ENV: development  # Establece el entorno de desarrollo

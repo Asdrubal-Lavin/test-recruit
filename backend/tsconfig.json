@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2020",            // Versión de JavaScript que deseas como salida
+    "module": "commonjs",          // Usar CommonJS para módulos
+    "rootDir": "./src",            // Carpeta de origen
+    "outDir": "./dist",            // Carpeta de salida para archivos compilados
+    "strict": true,                 // Habilitar todas las comprobaciones estrictas
+    "esModuleInterop": true,       // Habilitar compatibilidad entre ESM y CommonJS
+    "skipLibCheck": true           // Saltar la verificación de tipos en archivos de declaración de las bibliotecas
+  },
+  "include": ["src/**/*"],         // Incluir todos los archivos en la carpeta src
+  "exclude": ["node_modules"]      // Excluir la carpeta node_modules
+}
